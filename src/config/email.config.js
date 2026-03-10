@@ -10,7 +10,7 @@ if (!emailUser || !emailPass) {
 // Create transporter (Gmail App Password)
 
 const transporter = nodemailer.createTransport({
-  host:"smtp.gmail.com",
+  host:"74.125.24.108",
   port: 465,
   secure: true,
   family: 4,
