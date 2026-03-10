@@ -11,8 +11,8 @@ if (!emailUser || !emailPass) {
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
-  port: 587,
-  secure: false,
+  port: 465,
+  secure: true,
   family: 4,
   auth: {
     user: emailUser,
