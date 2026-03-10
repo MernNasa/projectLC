@@ -1,7 +1,8 @@
 const nodemailer = require("nodemailer");
 
-const emailUser = process.env.GOOGLE_APP_EMAIL;
-const emailPass = process.env.GOOGLE_APP_PASSWORD;
+const emailUser = process.env.BREVO_LOGIN;
+const emailPass = process.env.BREVO_SMTP_KEY;
+console.log(emailUser)
 
 if (!emailUser || !emailPass) {
   console.warn("Email credentials missing: set GOOGLE_APP_EMAIL and GOOGLE_APP_PASSWORD");
@@ -10,10 +11,11 @@ if (!emailUser || !emailPass) {
 // Create transporter (Gmail App Password)
 
 const transporter = nodemailer.createTransport({
-  host:"74.125.24.108",
-  port: 465,
-  secure: true,
-  family: 4,
+  host: "smtp-relay.brevo.com",
+  port: 587,
+  secure: false,
+  secure: false,
+  requireTLS:true,
   auth: {
     user: emailUser,
     pass: emailPass,
@@ -164,7 +166,7 @@ This is an automated email. Please do not reply.
 const EmailService = async (email, subject_text, message) => {
 
   const mailOptions = {
-    from: `"Learning Club Team" <${process.env.GOOGLE_APP_EMAIL}>`,
+    from: `"Learning Club Team" <${process.env.BREVO_EMAIL}>`,
     to: email,
     subject: subject_text,
 
