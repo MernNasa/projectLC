@@ -19,6 +19,7 @@ const storage = new CloudinaryStorage({
     folder: "documents/pdf",
     resource_type: "raw",
     format:"pdf",
+    type:"upload",
     public_id: `${normalizePublicId(file.originalname) || "document"}-${Date.now()}`,
   }),
 });
