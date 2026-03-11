@@ -17,7 +17,7 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: async (req, file) => ({
     folder: "documents/pdf",
-    resource_type: "raw",
+    resource_type: "image",
     format:"pdf",
     type:"upload",
     public_id: `${normalizePublicId(file.originalname) || "document"}-${Date.now()}`,
